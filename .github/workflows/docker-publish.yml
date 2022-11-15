@@ -41,7 +41,8 @@ jobs:
           ls ${{ github.workspace }}
       - name: Build docker image
         run: |
-          docker build -t malademcn/spring_native_amd64_java17_graalvm_22.3.0:0.1 -t malademcn/spring_native_amd64_java17_graalvm_22.3.0 .
+        docker push talosi/mvn-spring-native:tagname
+          docker build -t talosi/mvn-spring-native:1.0 -t talosi/mvn-spring-native .
       - name: Check if the image is present on the system
         run: |
           docker images
