@@ -39,6 +39,9 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+      - name: check if docker ready
+        run: |
+          docker ps
       #   uses: actions/checkout@v3
 
       # # Install the cosign tool except on PR
