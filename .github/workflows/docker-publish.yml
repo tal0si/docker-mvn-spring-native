@@ -41,7 +41,6 @@ jobs:
           ls ${{ github.workspace }}
       - name: Build docker image
         run: |
-        docker push talosi/mvn-spring-native:tagname
           docker build -t talosi/mvn-spring-native:1.0 -t talosi/mvn-spring-native .
       - name: Check if the image is present on the system
         run: |
