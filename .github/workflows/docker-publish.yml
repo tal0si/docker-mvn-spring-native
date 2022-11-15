@@ -31,7 +31,7 @@ jobs:
           ls ${{ github.workspace }}
       - name: Build docker image
         run: |
-          docker build -t env.IMAGE_NAME:env.IMAGE_VERSION -t env.IMAGE_NAME .
+          docker build -t ${{env.IMAGE_NAME}}:${{env.IMAGE_VERSION}} -t ${{env.IMAGE_NAME}} .
       - name: Check if the image is present on the system
         run: |
           docker images
@@ -42,7 +42,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Push the new docker images with version tag
         run: |
-          docker push env.IMAGE_NAME:env.IMAGE_VERSION
+          docker push ${{env.IMAGE_NAME}}:${{env.IMAGE_VERSION}}
       - name: Push the new docker images with latest tag
         run: |
-          docker push env.IMAGE_NAME
+          docker push ${{env.IMAGE_NAME}}
