@@ -39,7 +39,10 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
-      - name: check if docker ready
+      - name: Build docker image
+        run: |
+          docker build -t malademcn/spring_native_amd64_java17_graalvm_22.3.0:0.1 -t malademcn/spring_native_amd64_java17_graalvm_22.3.0 .
+      - name: Check if the image is present on the system
         run: |
           docker ps
       #   uses: actions/checkout@v3
