@@ -45,6 +45,13 @@ jobs:
       - name: Check if the image is present on the system
         run: |
           docker images
+      - name: Try login to docker
+        uses: docker/login-action@v2
+        with:
+          username: username
+          password: password
+          # username: ${{ secrets.DOCKERHUB_USERNAME }}
+          # password: ${{ secrets.DOCKERHUB_TOKEN }}
       #   uses: actions/checkout@v3
 
       # # Install the cosign tool except on PR
